@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 19 jQuery popup</title>
+    <script src="jquery-3.7.0.min.js"></script>
+    <style>
+    
+    body{ 
+        height: 100vh; 
+        margin: 0;
+        padding: 8px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: flex-start;
+        align-content: flex-start;
+        background: rgb(236, 235, 255);
+        font-family: Helvetica, sans-serif;
+    }
+
+    /* Popup */
+    .popup>.back{
+        position: fixed; 
+        top: 0; 
+        left: 0;
+        height: 100vh; 
+        width: 100vw;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .popup>.back>.front{
+        background:white;
+        height: 50%; 
+        width: 50%; 
+        max-width: 500px;
+        padding: 20px; 
+        border-radius: 5px; 
+        box-sizing: border-box; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+    .popup .front>.title{
+        margin: 5px;
+    }
+    .popup .front>.content{
+        flex-grow: 1;
+        margin: 15px 0;
+        width: 100%;
+        background: rgb(204, 204, 204);
+    }
+    .popup>.close{
+        display: none;
+    }
+
+    @media screen and (max-width: 720px) {
+        .popup>.back>.front{
+            height: 70%; 
+            width: 95%; 
+        }
+    }
+
+    /* Buttons */
+    button{
+        color:rgb(255,255,255);
+        line-height: 45px;
+        padding: 0 30px;
+        font-weight: bold;
+        border: none;
+        background: rgb(66,173,74);
+        border-radius: 7px;
+        font-size: 1rem;
+    }
+    button:hover{
+        background: rgb(44,119,49);
+    }
+    </style>
+</head>
+<body>
+    
+    <script>
+        "use strict";
+        $ === jQuery ? console.log('jQuery подключен') : console.log('Нет соединения с jQuery');
+
+        // работа программы
+        createPopup('body script'); // Создаём модальное окно
+        controlPopup();        // Управление модальным окном
+
+        // функция конструктор модального окна
+        function createPopup(nextElement) {
+            const popup    = $('<div>').addClass('popup');
+            const back     = $('<div>').addClass('back close');
+            const front    = $('<div>').addClass('front');
+            const title    = $('<h3>').addClass('title').text('Modal window');
+            const inner    = $('<div>').addClass('content');
+            const openBtn  = $('<button>').text('Open');
+            const closeBtn = $('<button>').text('Close');
+            const modalWindow = popup
+                .append(openBtn)                        // кнопка отрывания
+                .append(back                            // блокирующий див
+                    .append(front                       // лицо модального окна
+                        .append(title, inner, closeBtn) // содержимое модального окна
+                    )
+                );
+            return $(nextElement).before(modalWindow);// Возвращаем собранную конструкцию перед нужным элементом
+        }
+
+        // функция управления модальным окном
+        function controlPopup(){
+            $('button').click(() => $('.back').toggleClass('close'));
+        } 
+    </script>
+
+</body>
+</html>

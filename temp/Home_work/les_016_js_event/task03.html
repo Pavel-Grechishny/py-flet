@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 16 event</title>
+    <style>
+        body{
+            background:rgb(235, 235, 235);
+            margin: 0;
+            padding: 0;
+            font-family: Sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .work-window{
+            background: rgb(250, 250, 250);
+            width: 50%;
+            height: 50%;
+            padding: 15px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+        }
+        .work-window>div{
+            background: rgb(197, 253, 160);
+            padding: 15px;
+            margin: 7px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        h2{
+            padding: 0;
+            margin: 0;
+        }
+        .work-window>div>p{
+            width: 100%;
+        }
+        button{
+            color:rgb(255,255,255);
+            line-height: 30px;
+            min-width: 120px;
+            padding: 0 30px;
+            font-weight: bold;
+            border: none;
+            background: rgb(66,173,74);
+            border-radius: 7px;
+            font-size: 16px;
+            box-shadow: 0px 3px 3px 0px grey;
+            transition: all ease 50ms;  
+        }
+        button:hover{
+            background: rgb(44,119,49);
+            box-shadow: 0px 5px 5px 0px rgb(89, 89, 89);
+            transform: translate(0, -3%);
+        }
+        button:active{
+            box-shadow: none;
+            transform: translate(0);
+        }
+    </style>
+</head>
+<body>
+    <h1>Show / hide text</h1>
+    <div class="work-window">
+        <div>
+            <h2>Lorem, ipsum dolor?</h2>
+            <button>Hide</button>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem dignissimos fuga iure officiis veniam reprehenderit doloribus, voluptate doloremque. Excepturi suscipit quidem quisquam porro dicta eum non corrupti ipsum voluptatum assumenda?</p>
+        </div>
+        <div>
+            <h2>Lorem, ipsum dolor?</h2>
+            <button>Hide</button>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem dignissimos fuga iure officiis veniam reprehenderit doloribus, voluptate doloremque. Excepturi suscipit quidem quisquam porro dicta eum non corrupti ipsum voluptatum assumenda?</p>
+        </div>
+        <div>
+            <h2>Lorem, ipsum dolor?</h2>
+            <button>Hide</button>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem dignissimos fuga iure officiis veniam reprehenderit doloribus, voluptate doloremque. Excepturi suscipit quidem quisquam porro dicta eum non corrupti ipsum voluptatum assumenda?</p>
+        </div>
+        <div>
+            <h2>Lorem, ipsum dolor?</h2>
+            <button>Hide</button>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem dignissimos fuga iure officiis veniam reprehenderit doloribus, voluptate doloremque. Excepturi suscipit quidem quisquam porro dicta eum non corrupti ipsum voluptatum assumenda?</p>
+        </div>
+        <div>
+            <h2>Lorem, ipsum dolor?</h2>
+            <button>Hide</button>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem dignissimos fuga iure officiis veniam reprehenderit doloribus, voluptate doloremque. Excepturi suscipit quidem quisquam porro dicta eum non corrupti ipsum voluptatum assumenda?</p>
+        </div>
+    </div>
+    <script>
+        "use strict";
+        function hideShowText(){
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(btn => btn.addEventListener('click', evnt => {
+                const button = evnt.target;
+                const div = button.closest("div");
+                const text = div.querySelector("p");
+                !text.hidden ? text.hidden = true : text.hidden = false;
+                !text.hidden ? button.textContent = 'Hide' : button.textContent = 'Show';
+            }))
+        }
+        hideShowText();
+    </script>
+</body>
+</html>

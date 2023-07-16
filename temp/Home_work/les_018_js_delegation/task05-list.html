@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 18 list</title>
+    <style>
+        body{
+            background:rgb(197, 197, 197);
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        main{
+            max-width: 900px;
+            min-height: 100vh;
+            background: white;
+            margin: 0 auto;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+        }
+        .simple, .delegation{
+            display: flex;
+            justify-content: space-evenly;
+            overflow: hidden;
+        }
+        ol{
+            border: 1px solid rgb(221, 221, 221);
+            padding: 0;
+        }
+        li{
+            line-height: 30px;
+            padding: 0 30px;
+            list-style-position: inside;
+            cursor: pointer;
+        }
+        li::marker{
+            background: rgb(255, 153, 0);
+        }
+        .selected{
+            background: rgb(255, 153, 0);
+        }
+        @media screen and (max-width: 768px) {
+            .simple, .delegation{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Без делегирования</h2>
+        <div class="simple">
+            <ol>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+            </ol>
+            <ol>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+            </ol>
+        </div>
+        <h2>Делегированиe</h2>
+        <div class="delegation">
+            <ol>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+            </ol>
+            <ol>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+                <li><i>Lorem</i>Lorem<strong>Lorem</strong>Lorem<em>Lorem</em>Lorem<b>Lorem</b></li>
+            </ol>
+        </div>
+    </main>
+    
+    <script>
+        "use strict";
+
+        function simpleToggle(){
+            const olAll = document.querySelectorAll('.simple ol');
+            olAll.forEach(ol => {
+                const liAll = ol.querySelectorAll('li');
+                liAll.forEach(li => li.addEventListener('click', event => {
+                    clearStyleAllLi(); 
+                    event.currentTarget.classList.add('selected');
+                }))
+            });
+        }
+        simpleToggle();
+
+        function delegationToggle(){
+            const parentOl = document.querySelector('.delegation');
+            parentOl.addEventListener('click', event => {
+                clearStyleAllLi();
+                event.target.closest('li').classList.add('selected');
+            })
+        }
+        delegationToggle();
+
+
+        // вспомогательная функция очистки всех li
+        function clearStyleAllLi(){
+            const liAll = document.querySelectorAll('li');
+            liAll.forEach(li => li.classList.remove('selected'));
+        }
+
+    </script>
+</body>
+</html>

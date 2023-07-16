@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 18 footbal</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+            margin: 0;
+            background: rgb(71, 61, 92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play{
+            box-sizing: border-box;
+            width: 768px;
+            height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-zone{
+            position: relative;
+            box-sizing: border-box;
+            z-index: 1;
+            flex-grow: 1;
+            width: 100%;
+            height: 100%;
+        }
+        .play-zone>img{
+            display: block;
+            width: 100%; 
+            height: 100%;
+        }
+        .play-ball{
+            background: white;
+            z-index: 2;
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            transition: all 1000ms linear;
+            overflow: hidden;
+        }
+        .play-ball>img{
+            width: 100%;
+            height: 100%;
+        }
+        img{
+            pointer-events: none;
+            -moz-user-select: none; 
+            -webkit-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none;
+            
+        }
+        .ball-rotate{
+            transform: rotate(750deg);
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="play">
+        <div class="play-zone">
+            <img src="./bg-1.jpg" alt="football">
+            <div class="play-ball" style="top: calc(50% - 15px); left: calc(50% - 15px)">
+                <img src="./ball-2.jpg" alt="ball">
+            </div>
+        </div>
+    </div>    
+   
+    
+    <script>
+        "use strict";
+        function playGame() {
+            
+            const ball = document.querySelector('.play-ball'); // мяч
+            const zone = document.querySelector('.play-zone'); // игровое поле
+            const ballRad = ball.getBoundingClientRect().width / 2; // радиус мяча
+            const zoneWidth = zone.getBoundingClientRect().width; // ширина поля
+            const zoneHeight = zone.getBoundingClientRect().height; // высота поля
+            const shiftX = zone.getBoundingClientRect().left; // сдвиг по оси X
+            const shiftY = zone.getBoundingClientRect().top; // сдвиг по оси Y
+
+            document.addEventListener('click', event => {
+                const X = event.clientX;
+                const Y = event.clientY;
+            
+                // смещение по X
+                X - shiftX - ballRad < 0 ? ball.style.left = '0px' : ball.style.left = X - shiftX - ballRad + 'px';
+                X > shiftX + zoneWidth - ballRad ? ball.style.left = zoneWidth - ballRad * 2 + 'px' : X - shiftX - ballRad * 2 + 'px';
+
+                // смещение по Y
+                Y - shiftY - ballRad < 0 ? ball.style.top = '0px' : ball.style.top = Y - shiftY - ballRad + 'px';
+                Y > shiftY + zoneHeight - ballRad ? ball.style.top = zoneHeight - ballRad * 2 + 'px' : Y - shiftY - ballRad * 2 + 'px';
+                
+                // вращение мяча
+                ball.classList.toggle('ball-rotate');
+            });
+        }
+        playGame();
+    </script>
+</body>
+</html>

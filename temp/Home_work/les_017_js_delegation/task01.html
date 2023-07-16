@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 17 input</title>
+    <style>
+        *{
+            font-family: sans-serif; 
+            text-align: center;
+        }
+        form{
+            max-width: 500px;
+            padding: 30px;
+            background: rgb(233, 233, 233);
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        label{
+            font-size: 20px;
+        }
+        input, textarea {
+            border: 1px solid rgb(200, 200, 200);
+            border-radius: 5px;
+            padding: 14px 20px;
+            font-size: 18px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ввод имени</h1>
+    <form class="simple" method="post" action="#"> 
+        <label>Без делегирования</label>
+        <input type="text" placeholder="только буквы" value="">
+        <input type="text" placeholder="только буквы" value="">
+        <textarea>Любые символы</textarea>
+    </form>
+    <form class="delegation" method="post" action="#"> 
+        <label>Делегирование</label>
+        <input type="text" placeholder="только буквы" value="">
+        <input type="text" placeholder="только буквы" value="">
+        <textarea>Любые символы</textarea>
+    </form>
+
+    <script>
+        "use strict";
+
+        // без делегирования в форме с классом .simple
+        function simpleInput(){
+            const inputs = document.querySelectorAll('.simple input');
+            inputs.forEach(input => input.addEventListener('keydown', event => {
+                if (!checkInput(event.code, event.key)) event.preventDefault();
+            }));
+        }
+        simpleInput();
+
+        // делегирование в форме с классом .delegation
+        function delegationInput(){
+            const section = document.querySelector('.delegation').addEventListener('keydown', event => {
+                const input = event.target.closest('input');
+                if (!input) return;
+                if (!checkInput(event.code, event.key)) event.preventDefault();
+            });
+        }
+        delegationInput();
+
+        // вспомогательная функция проверка кнопки
+        function checkInput(code, key){
+            const goodCode = ['Backspace', 'Tab', 'Enter', 'ShiftLeft', 'ShiftRight', 'CapsLock', 'Escape'];
+            if (goodCode.includes(code)) return true;
+            if (code.includes('Key')) return true;
+            if (/^[а-яё]+$/i.test(key)) return true;
+            return false;
+        }
+    </script>
+</body>
+</html>
+
+
+

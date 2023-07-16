@@ -1,0 +1,130 @@
+body{
+    min-height: 101vh;
+    background: var(--box-color);
+    color: var(--font-color);
+    font-family: 'YSText';
+}
+main{
+    height: 100%;
+}
+
+.control-box{
+    background: url('../../images/bg.webp') no-repeat center center fixed;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+.cheater{
+    height: 150px;
+    transition: height 0.3s ease;
+}
+.cheater.high{
+    height: calc(40vh + 150px);
+}
+
+
+
+.header-wrapper,
+.baner-wrapper, 
+.content-wrapper,
+.search-wrapper{
+    max-width: calc(100% - 100px);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+}
+header{
+    border-bottom: 1px solid var(--box-color-02);
+    color: var(--font-color);
+    font-weight: 500;
+    font-size: 20px;
+    background: var(--half-color);
+    
+}
+
+.header-wrapper{
+    justify-content: space-between;
+    align-items: center; 
+    height: 75px;          
+}
+.logo{
+    font-size: 1.5em;
+    line-height: 1.5em;
+    font-weight: bold;
+    color: var(--font-color);
+}
+.baner{
+    background: var(--half-color);   
+    overflow: hidden;
+    height: 0vh;
+    transition: height 0.3s ease;  
+    display: flex;
+    align-items: center; 
+}
+.half-height{
+    height:  40vh;
+    transition: height 0.3s ease;
+}
+h1{
+    text-align: center;
+    color: var(--font-color);
+    font-size: 3em;
+}
+.search-block{
+    background: var(--box-color-02);
+    height: 75px; 
+}
+/**/
+.search-wrapper{
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+} 
+input#search{
+    flex-grow: 1;
+    outline: 0px solid var(--color);
+    color: var(--font-color);
+    font-weight: 500;
+    font-size: 20px;
+    border: none;
+    height: 100%;
+    /* padding: 15px; */
+    border-radius: 50px;
+    background: var(--box-color-01);
+    text-align: center;
+    box-shadow: inset 1px 1px 3px var(--shadow-color);
+}
+nav>ul{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+nav>ul>li{
+    cursor: pointer;
+}
+nav>ul>li:hover{
+    color: var(--color);
+}
+
+.fixed{
+    position: fixed;
+}
+
+@media screen and (max-width:1920px){
+    .header-wrapper,
+    .baner-wrapper, 
+    .content-wrapper,
+    .search-wrapper{
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px;
+    }
+}

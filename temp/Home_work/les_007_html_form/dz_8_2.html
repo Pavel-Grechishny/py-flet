@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            width: 1500px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 10px;
+            padding: 0 1.5em;
+            background-color: whitesmoke;
+            background-image: url(dz82.png);
+            background-repeat: no-repeat;
+            background-position-x: 750px;}
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.5rem;}
+        label {
+            font-size: 1.2rem;
+        }
+        :focus{
+            outline: none;
+        }
+
+        input{
+            background-color: rgb(255,255,255);
+        }
+
+        /* INPUT - TYPE TEXT */
+
+        input[type=text]{
+            border: 1px solid rgb(219, 219, 219);
+            border-radius: 5px;
+            padding: 14px 20px;
+            font-size: 1rem
+        }
+        input[type=text]:valid,
+        input[type=text]:invalid{
+            background-position: calc(100% - 10px) center;
+            background-repeat: no-repeat;
+            background-size: 18px;
+        }
+        input[type=text]:valid{
+            border: 1px solid rgb(66,173,74);
+            color: rgb(66,173,74);
+            background-image: url(./img/valid.png);   
+        }
+        input[type=text]:invalid{
+            border: 1px solid rgb(228,65,96);
+            color: rgb(165,73,90);
+            background-image: url(./img/invalid.png);
+        }
+
+        /* INPUT - TYPE CHECKBOX */
+        
+        input[type=checkbox]{
+            appearance: none;
+            width: 50px;
+            padding: 2px;
+            border: 1px solid rgb(66,173,74);
+            border-radius: 5px;
+            vertical-align: middle;
+            margin-right: 0;
+            margin-top: 0;
+        }
+        input[type=checkbox]::after{
+            content: '';
+            display: block;
+            width: 60%;
+            height: 1.2rem;
+            background: rgb(66,173,74);
+            border-radius: 5px;
+        }
+        input[type=checkbox]:checked{
+            border: 1px solid rgb(228,65,96);
+        }
+        input[type=checkbox]:checked::after{
+            background: rgb(228,65,96);
+            margin-left: 40%;
+        }
+
+        /* INPUT - TYPE RADIO */
+
+        input[type=radio]{
+            appearance: none;
+            width: 1.4rem;
+            height: 1.4rem;
+            border: 1px solid rgb(66,173,74);
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-top: 0;
+            margin-bottom: 5px;
+            padding: 2px; 
+        }
+        input[type=radio]:checked{
+            background: rgb(66,173,74);
+            background-clip: content-box;
+        }
+
+        /* BUTTON */
+
+        button{
+            color:rgb(255,255,255);
+            line-height: 45px;
+            padding: 0 30px;
+            font-weight: bold;
+            border: none;
+            background: rgb(66,173,74);
+            border-radius: 7px;
+            font-size: 16px;
+            box-shadow: 0px 3px 3px 0px grey;
+            transition: all ease 50ms;  
+        }
+        button:hover{
+            background: rgb(44,119,49);
+            box-shadow: 0px 5px 5px 0px rgb(89, 89, 89);
+            transform: translate(0, -3%);
+        }
+        button.danger{
+            background: rgb(228,65,96);
+        }
+        button.danger:hover{
+            background: rgb(151,42,63);
+        }
+
+        button.circle{
+            padding: 0 15px;
+            width: 45px;
+            border-radius: 50%; 
+        }
+        button:active{
+            box-shadow: none;
+            transform: translate(0);
+        }
+
+
+        button[disabled],
+        button[disabled]:hover{
+            background: rgb(129,128,129);
+            box-shadow: 0px 3px 3px 0px rgb(89, 89, 89);
+            transform: translate(0);
+        }
+        
+
+        /* TEXTAREA */
+
+        textarea{
+            padding: 15px 20px;
+            border: 1px solid rgb(219, 219, 219);
+            border-radius: 5px;
+            font-family: sans-serif;
+            font-size: 1.1rem;
+            min-width: 500px;
+        }
+
+        ::placeholder{
+            color:rgb(219, 219, 219);
+        }
+
+
+
+
+    </style>
+    <title>DZ 8.2</title>
+    <!-- <link rel="stylesheet" href="lib.css"> -->
+</head>
+
+<body>
+    <h3>Inputs</h3>
+    <input type="text" placeholder="Enter some text" disabled>
+    <input type="text" value="valid text">
+    <input type="text" value="invalid text" pattern="\d">
+    <h3>Check boxes</h3>
+    <label>
+        <input type="checkbox"> Subscribe
+    </label>
+    <label>
+        <input type="checkbox" checked> Subscribe
+    </label>
+    <h3>Radio buttons</h3>
+    <label>Gender:</label>
+    <label><input type="radio" name="gender" checked>Male</label>
+    <label><input type="radio" name="gender">Female</label>
+    <h3>Buttons</h3>
+    <button>Active</button>
+    <button class="danger">Danger</button>
+    <button disabled>Disabled</button>
+    <button class="circle">+</button>
+    <button class="circle danger">-</button>
+    <h3>Text area</h3>
+    <textarea placeholder="Enter some text..."></textarea>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'YSText';
+    src: url('../fonts/ynd/YSTextThin.eot');
+    src: local('../fonts/ynd/YSTextThin'),
+        url('../fonts/ynd/YSTextThin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ynd/YSTextThin.woff2') format('woff2'),
+        url('../fonts/ynd/YSTextThin.woff') format('woff'),
+        url('../fonts/ynd/YSTextThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YSText';
+    src: url('../fonts/ynd/YSTextLight.eot');
+    src: local('../fonts/ynd/YSTextLight'),
+        url('../fonts/ynd/YSTextLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ynd/YSTextLight.woff2') format('woff2'),
+        url('../fonts/ynd/YSTextLight.woff') format('woff'),
+        url('../fonts/ynd/YSTextLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YSText';
+    src: url('../fonts/ynd/YSTextRegular.eot');
+    src: local('../fonts/ynd/YSTextRegular'),
+        url('../fonts/ynd/YSTextRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ynd/YSTextRegular.woff2') format('woff2'),
+        url('../fonts/ynd/YSTextRegular.woff') format('woff'),
+        url('../fonts/ynd/YSTextRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YSText';
+    src: url('../fonts/ynd/YSTextMedium.eot');
+    src: local('../fonts/ynd/YSTextMedium'),
+        url('../fonts/ynd/YSTextMedium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ynd/YSTextMedium.woff2') format('woff2'),
+        url('../fonts/ynd/YSTextMedium.woff') format('woff'),
+        url('../fonts/ynd/YSTextMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YSText';
+    src: url('../fonts/ynd/YSTextBold.eot');
+    src: local('../fonts/ynd/YSTextBold'),
+        url('../fonts/ynd/YSTextBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ynd/YSTextBold.woff2') format('woff2'),
+        url('../fonts/ynd/YSTextBold.woff') format('woff'),
+        url('../fonts/ynd/YSTextBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

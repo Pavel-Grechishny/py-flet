@@ -1,0 +1,30 @@
+
+ Написать JS код, который для "пустого" html-кода:
+ <html><head></head><body><!-- место для вашего скрипта!! --></body></html>
+
+ 1 сначала создаст внутри body  такую структуру:
+
+<div id="d1">
+    <div id="d11">
+        <div id="d111">111</div>
+    </div>
+    <div id="d12">
+        <div id="d121">121</div>
+        <div id="d122">122</div>
+    </div>
+    <div id="d13">
+        <div id="d131">131</div>
+        <div id="d132">132</div>
+        <div id="d133">133</div>
+    </div>
+</div>
+
+2 а затем скрипт должен получить из document элемент с id=d132 и выделит его красным.
+
+PS дополнительно можно всё это подсветить с помощью такого CSS:
+
+div {
+border: 1px solid blue;
+margin: 5px;
+padding: 5px;
+}

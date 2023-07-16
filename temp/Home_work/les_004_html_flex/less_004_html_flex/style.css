@@ -1,0 +1,193 @@
+/*
+|--------------------------------------|
+|         переменные - root            |
+|--------------------------------------|
+*/
+
+:root {
+    --offset: 15px; /* межколоночный отступ вместо gap*/
+    --column: 5; /* первоначальное количеcтво катрочек при максимальной ширине экрана */
+    --f-size: 10px; /* минимальный размер шрифта */
+}
+
+
+/*
+|--------------------------------------|
+|       mini-reset & my-normalize      |
+|--------------------------------------|
+*/
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: var(--f-size);
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main, footer{
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 1024px;
+}
+main{
+    background: rgb(235, 235, 235);
+    flex-grow: 1;
+}
+h1{
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.4em;
+}
+
+/*
+|--------------------------------------|
+|        part 01 flex-lesson           |
+|--------------------------------------|
+*/
+
+.wrapper{
+    width: calc(100% + var(--offset) * 2);
+    margin: 0 calc(var(--offset) * (-1));
+    display: flex;
+    flex-wrap: wrap;
+}
+.fridge >div{
+    margin: var(--offset);
+    width: calc(100% / var(--column) - var(--offset) * 2);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: calc(var(--offset) * 1.5);
+    border: 2px solid rgb(128, 128, 128);
+    background: rgb(235, 235, 235);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.fridge >div:hover{
+    /* transform: scale(1.03); */
+    border-color: blue;
+    background: rgb(245, 245, 245);
+}
+.fridge >div >img{
+    max-width: 90px;
+    height: auto;
+}
+.fridge >div >span{
+    font-size: 1.8em;
+    padding-top: 30px;
+}
+.continue{
+    display: flex;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: rgb(41, 41, 41);
+    font-size: 1.8em;
+}
+
+/*
+|--------------------------------------|
+|           part 02 footer             |
+|--------------------------------------|
+*/
+
+footer{
+    width: 100%;
+    font-weight: normal;
+    background: rgb(42,78,110);
+    color:rgb(235, 235, 235);
+    display: flex;
+    flex-wrap: wrap;
+}
+.links{
+    padding: var(--offset) 0;
+    flex-basis: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.links >div{
+    margin: 0 var(--offset);
+    padding: 5px;
+    padding-left: 50px;
+    font-size: 1.6em;
+    flex-basis: calc(100% / 2 - var(--offset) * 2);
+    cursor: pointer;
+}
+.links >div:hover{
+    color: yellow;
+}
+.network{
+    padding: var(--offset) 0;
+    flex-basis: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+}
+.network >div{
+    margin: 0 var(--offset);
+    cursor: pointer;
+}
+.network img{
+    max-width: 50px;
+    height: auto;
+    filter: grayscale(100%);
+    transition: all 0.2s ease;
+}
+.network img:hover{
+    filter: grayscale(0%);
+}
+.copyright{
+    border-top: 1px solid rgb(245, 245, 245);
+    flex-basis: 100%;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: center;
+    padding: var(--offset);
+}
+
+/*
+|--------------------------------------|
+|                media                 |
+|--------------------------------------|
+*/
+
+@media screen and (max-width: 900px){
+    :root {
+        --column: 4;
+    }
+}
+@media screen and (max-width: 800px){
+    :root {
+        --column: 3;
+    }
+    footer .wrapper >div{
+        flex-basis: 100%;
+    }
+}
+@media screen and (max-width: 620px){
+    :root {
+        --column: 2;
+        --f-size: 10px
+    }
+    .links >div{
+        flex-basis: calc(100% / 12 * 8 - var(--offset) * 2);
+    }
+}
+@media screen and (max-width: 400px){
+    :root {
+        --column: 1;
+        --f-size: 8px
+    }
+}
