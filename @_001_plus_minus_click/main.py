@@ -43,3 +43,23 @@ def main(page: Page):
     
 # >>>print(e)
 # <flet_core.control_event.ControlEvent object at 0x000001A699760FD0>
+
+# >>> globals()
+# {
+    # '__name__': '__main__',
+    # '__doc__': None,
+    # '__package__': None,
+    # '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x000001719FEB47D0>,
+    # '__spec__': None,
+    # '__annotations__': {},
+    # '__builtins__': <module 'builtins' (built-in)>,
+    # 'Page': <class 'flet_core.page.Page'>,
+    # 'MainAxisAlignment': <enum 'MainAxisAlignment'>,
+    # 'TextField': <class 'flet_core.textfield.TextField'>,
+    # 'TextAlign': <enum 'TextAlign'>,
+    # 'Row': <class 'flet_core.row.Row'>,
+    # 'IconButton': <class 'flet_core.icon_button.IconButton'>,
+    # 'Icons': <module 'flet_core.icons' from 'C:\\Python311\\Lib\\site-packages\\flet_core\\icons.py'>, 
+    # 'APP': <function app at 0x00000171A37C11C0>,
+    # 'main': <function main at 0x00000171A00944A0>
+# }
