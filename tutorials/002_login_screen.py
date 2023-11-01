@@ -10,13 +10,13 @@ def main(page: flet.Page) -> None:
     page.window_width = 360
     page.window_height = 620
     page.window_resizable = False
-    page.window_opacity = 0.95
+    page.window_opacity = 0.99
     
     # Setup our fields
     username: TextField = TextField(label='Username', text_align=flet.TextAlign.LEFT, width=200)
     password: TextField = TextField(label='Password', text_align=flet.TextAlign.LEFT, width=200, password=True)
     checkbox: Checkbox = Checkbox(label='I agree to stuff', value=False)
-    button_submit: ElevatedButton = ElevatedButton(text='Sign up', width=200, height=50, disabled=True)
+    button_submit: ElevatedButton = ElevatedButton(text='Sign up', width=200, disabled=True)
     
     # Used events
     def validate(e: ControlEvent) -> None:
